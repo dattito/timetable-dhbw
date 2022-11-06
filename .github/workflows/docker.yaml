@@ -21,7 +21,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/dattito/purrmannplus-backend
+          images: ghcr.io/dattito/ttdhbw
           tags: |
             type=ref,event=branch
           flavor: |

@@ -19,3 +19,8 @@ Google Calender (ORIGINAL_ICS_URL) and adds the address of the DHBW to the locat
 
 I published the docker image on github (linked to this repo). You can pull it and add the environment variable `ORIGINAL_ICS_URL` to the docker container (with the url of the original ics-file).
 Then you can access the new ics-file on port 3000 of the container (on the root path) and subscribe to it in your calendar app, after publishing it to the internet.
+
+## Further development
+
+If there is a interest for it, I could extend the script and deploy it publicly for all DHBW students.
+For that, contact me on github or via email (contact@relay.datti.to).
