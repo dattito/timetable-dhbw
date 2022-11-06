@@ -21,7 +21,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/dattito/ttdhbw
+          images: ghcr.io/dattito/timetable-dhbw
           tags: |
             type=ref,event=branch
           flavor: |

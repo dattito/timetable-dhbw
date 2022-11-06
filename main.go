@@ -25,7 +25,13 @@ func startWebServer(originalIcsUrl string) {
 		Expiration: 15 * time.Minute,
 	}))
 
+	logRequests := os.Getenv("LOG_REQUESTS") == "true"
+
 	app.Get("/", func(c *fiber.Ctx) error {
+		if logRequests {
+			log.Println("Request received")
+		}
+
 		ics, err := getNewIcsFile(originalIcsUrl)
 		if err != nil {
 			log.Println(err)
