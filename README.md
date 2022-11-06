@@ -17,7 +17,7 @@ Google Calender (ORIGINAL_ICS_URL) and adds the address of the DHBW to the locat
 
 ## Usage
 
-I published the docker image on github (gcr.io/dattito/timetable-dhbw). You can pull it and add the environment variable `ORIGINAL_ICS_URL` to the docker container (with the url of the original ics-file).
+I published the docker image on github (ghcr.io/dattito/timetable-dhbw). You can pull it and add the environment variable `ORIGINAL_ICS_URL` to the docker container (with the url of the original ics-file).
 Then you can access the new ics-file on port 3000 of the container (on the root path) and subscribe to it in your calendar app, after publishing it to the internet.
 
 ## Further development
