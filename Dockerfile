@@ -16,9 +16,8 @@ FROM gcr.io/distroless/base-debian10
 WORKDIR /
 
 COPY --from=build /ttdhbw /ttdhbw
-COPY config.json /config.json
 
-EXPOSE 8080
+EXPOSE 3000
 
 USER nonroot:nonroot
 
