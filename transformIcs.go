@@ -17,8 +17,12 @@ func transformCalender(ics *ics.Calendar) {
 		}
 
 		// Add address to location
-		if strings.Contains(event.GetProperty("LOCATION").Value, "online") {
-			event.SetDescription(fmt.Sprintf("(%s)\n%s", event.GetProperty("LOCATION").Value, event.GetProperty("DESCRIPTION").Value))
+		if strings.Contains(event.GetProperty("LOCATION").Value, "online") || strings.Contains(event.GetProperty("SUMMARY").Value, "online") {
+			location := event.GetProperty("LOCATION").Value
+			if location == "" {
+				location = "online"
+			}
+			event.SetDescription(fmt.Sprintf("(%s)\n%s", location, event.GetProperty("DESCRIPTION").Value))
 			event.SetLocation("")
 		} else {
 			roomName := ""
