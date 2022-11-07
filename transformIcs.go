@@ -43,7 +43,6 @@ func transformCalender(ics *ics.Calendar) {
 		// Move name of lecturer to summary
 		summary := event.GetProperty("SUMMARY").Value
 		lecturer, summaryWithoutLecturer := splitLecturerFromString(summary)
-		fmt.Println(lecturer, summaryWithoutLecturer)
 		if lecturer != "" {
 			event.SetSummary(summaryWithoutLecturer)
 			event.SetDescription(fmt.Sprintf("Dozent: %s\n%s", lecturer, event.GetProperty("DESCRIPTION").Value))
