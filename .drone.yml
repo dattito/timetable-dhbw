@@ -15,3 +15,7 @@ steps:
         from_secret: GIT_PASSWORD
       tags: latest
       platforms: [linux/amd64, linux/arm64]
+
+trigger:
+  branch:
+    - main
