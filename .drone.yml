@@ -1,0 +1,16 @@
+kind: pipeline
+name: default
+type: kubernetes
+
+steps:
+  - name: docker build & push
+    image: plugins/docker
+    settings:
+      platform: linux/amd64
+      registry: git.datti.to
+      repo: git.datti.to/dattito/timetable-dhbw
+      username:
+        from_secret: GIT_USER
+      password:
+        from_secret: GIT_PASSWORD
+      tags: latest
