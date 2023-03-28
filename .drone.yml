@@ -3,10 +3,10 @@ name: default
 type: kubernetes
 
 steps:
-  - name: docker build & push amd64
-    image: plugins/docker
+  - name: docker build & push
+    image: thegeeklab/drone-docker-buildx:23
+    privileged: true
     settings:
-      platform: linux/amd64
       registry: git.datti.to
       repo: git.datti.to/dattito/timetable-dhbw
       username:
@@ -14,14 +14,4 @@ steps:
       password:
         from_secret: GIT_PASSWORD
       tags: latest
-  - name: docker build & push arm64
-    image: plugins/docker
-    settings:
-      platform: linux/arm64
-      registry: git.datti.to
-      repo: git.datti.to/dattito/timetable-dhbw
-      username:
-        from_secret: GIT_USER
-      password:
-        from_secret: GIT_PASSWORD
-      tags: latest
+      platforms: [linux/amd64, linux/arm64]
