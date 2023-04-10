@@ -1,6 +1,8 @@
 # Timetable DHBW
 
-by Dattito | David Siregar
+by Dattito | David S.
+
+[![Build Status](https://drone.datti.to/api/badges/dattito/timetable-dhbw/status.svg)](https://drone.datti.to/dattito/timetable-dhbw)
 
 ## Problem
 
