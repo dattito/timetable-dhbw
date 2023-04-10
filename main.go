@@ -9,10 +9,12 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cache"
 )
 
+const originalIcsUrlKey = "ORIGINAL_ICS_URL"
+
 func main() {
-	originalIcsUrl := os.Getenv("ORIGINAL_ICS_URL")
+	originalIcsUrl := os.Getenv(originalIcsUrlKey)
 	if originalIcsUrl == "" {
-		log.Fatal("ORIGINAL_ICS_URL is not set")
+		log.Fatalf("%s is not set", originalIcsUrlKey)
 	}
 
 	startWebServer(originalIcsUrl)

@@ -56,9 +56,9 @@ func splitLecturerFromString(text string) (string, string) {
 	lecturerTitleIndex := -1
 
 	for i, t := range split {
-		if strings.Contains(t, "Fr") ||
-			strings.Contains(t, "Hr") ||
-			strings.Contains(t, "Dr") ||
+		if strings.Contains(t, "Fr.") ||
+			strings.Contains(t, "Hr.") ||
+			strings.Contains(t, "Dr.") ||
 			strings.Contains(t, "Prof") {
 			lecturerTitleIndex = i
 			break
@@ -69,7 +69,18 @@ func splitLecturerFromString(text string) (string, string) {
 		return "", text
 	}
 
-	return strings.Join(split[lecturerTitleIndex:lecturerTitleIndex+2], " "), strings.Join(split[:lecturerTitleIndex], " ") + " " + strings.Join(split[lecturerTitleIndex+2:], " ")
+	if len(split) < lecturerTitleIndex+2 {
+		return "", text
+	}
+	if lecturerTitleIndex == 0 {
+		return "", text
+	}
+	if lecturerTitleIndex == len(split)-1 {
+		return "", text
+	}
+
+	return strings.Join(split[lecturerTitleIndex:lecturerTitleIndex+2], " "),
+		strings.Join(split[:lecturerTitleIndex], " ") + " " + strings.Join(split[lecturerTitleIndex+2:], " ")
 }
 
 func getOriginalIcsFile(originalIcsUrl string) (*ics.Calendar, error) {
