@@ -17,7 +17,7 @@ func transformCalender(ics *ics.Calendar) {
 		}
 
 		// Add address to location
-		if strings.Contains(event.GetProperty("LOCATION").Value, "online") || strings.Contains(event.GetProperty("SUMMARY").Value, "online") {
+		if event.GetProperty("LOCATION") != nil && (strings.Contains(event.GetProperty("LOCATION").Value, "online") || strings.Contains(event.GetProperty("SUMMARY").Value, "online")) {
 			location := event.GetProperty("LOCATION").Value
 			if location == "" {
 				location = "online"
@@ -26,7 +26,7 @@ func transformCalender(ics *ics.Calendar) {
 			event.SetLocation("")
 		} else {
 			roomName := ""
-			if event.GetProperty("LOCATION").Value != "" {
+			if event.GetProperty("LOCATION") != nil && event.GetProperty("LOCATION").Value != "" {
 				roomName = fmt.Sprintf("%s, ", event.GetProperty("LOCATION").Value)
 			}
 			event.SetLocation(fmt.Sprintf("%sCoblitzallee 1-9, 68163 Mannheim, Deutschland", roomName))
